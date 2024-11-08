@@ -1,0 +1,17 @@
+#whole-bg {
+    background-color: #FA7600;
+    flex-direction: column;
+    min-height: 100vh;
+    display: flex;
+    color: rgba(163, 150, 150, 0.9);
+    overflow: hidden;
+}
+
+a {
+    text-decoration: none;
+    
+    color: #1b79e4;
+}
+
+
+

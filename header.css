@@ -1,0 +1,22 @@
+#header-nav {
+    background-color: white;
+    padding: 0;
+    box-shadow: 5px 5px rgba(226, 212, 212, 0.87);
+    border-radius: 6px;
+    margin-top: 8px;
+    
+}
+
+
+.help {
+    display: block;
+    height: 50px;
+    padding-right:3px;
+}
+
+.tropical-logo {
+    height: 50px;
+
+}
+
+
