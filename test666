@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="language.js" defer></script>
+    <script src="rainfall.js" defer></script>
+    <script src="map.js" defer></script>
+    <script src="https://webapi.amap.com/loader.js"></script>
+    <link rel="stylesheet" href="hamburger.css">
+    <link href="body.css" rel="stylesheet">
+    <link href="header.css" rel="stylesheet">
+    <link href="footer.css" rel="stylesheet">
+    <link href="phonePage.css" rel="stylesheet">
+    <link href="map.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- 整个页面的容器 -->
+
+
+
+    <div class="main" id="map">
+
+        <div class="container-fluid " id="whole-bg" style=" background-size: cover; z-index: 1;">
+            <header class="top" style="z-index: 100;">
+                <!-- header部分 -->
+                <nav class="container-fluid" id="header-nav">
+                    <!-- 头部导航栏 -->
+                    <div class="row">
+                        <!-- bootstrap栅格系统 ，自适应屏幕-->
+                        <div class="col-8" id="col-left">
+                            <a href="https://www.peak-re.com/tcat">
+                                <img class="tropical-logo" src="https://tcat.peak-re.com/pic/TCT_Icon2.gif">
+                            </a>
+                            <a href="https://www.peak-re.com/en/">
+                                <img class="logo" src="https://www.peak-re.com/media/sqbdjphp/peak-re-logo.svg">
+                            </a>
+                        </div>
+
+                        <div class="col-4 d-flex justify-content-end " id="col-right" >
+                        
+                        <div class="dropdown">
+                            <button type="button" class="btn-lang" data-bs-toggle="dropdown" style="background: white;border-color: #ffffff!important; border-style: none; border-width: 0px;">
+                            <!-- <img src="https://static.vecteezy.com/system/resources/previews/000/581/850/original/globe-earth-icon-vector-illustration.jpg"
+                                style="height:50px ;"> -->
+                               <button class="dropdown-item translate lang" id="en zh" key="EN"></button>  
+                                <button class="dropdown-item translate lang" id="" key="EN"></button>
+                            </button>
+                            
+                            
+                            
+                        
+                        </div>  
+                           
+                            <!-- <a class="icon-lang" href="javascript:;"></a>
+                            <ul class="lang-items">
+                                <li> <a data-lang-url="/en/contact-us/" href="/en/contact-us/">EN</a></li>
+                                <li class="active"><a data-lang-url="/zh-cn/contact-us/" href="/zh-cn/contact-us/">简</a></li>
+                            </ul> -->
+                            <span class="help">
+                                <a class="btn btn-primary full-button" data-bs-toggle="offcanvas"
+                                    href="#offcanvasExample" role="button" aria-controls="offcanvasExample"
+                                    style="background-color: white; border: none;">
+                                    <!-- icon="" -->
+                                    <img class="help" src="image.png" style="padding-bottom: 10px;">
+                                </a>
+                               
+                            </span>
+                            <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample"
+                                aria-labelledby="offcanvasExampleLabel"
+                                style="background-color: rgba(243, 143, 12,0.6);;">
+                                <div class="offcanvas-header">
+                                    <h5 class="offcanvas-title" id="offcanvasExampleLabel">help center</h5>
+                                    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="offcanvas-body">
+                                    <div class="dropdown mt-3">
+                                        <button class="btn btn-secondary dropdown-toggle" type="button"
+                                            id="dropdownMenuButton" data-bs-toggle="dropdown"
+                                            style="margin-left: 50px; height: 70px;">
+                                            使用说明<br />Instruction
+                                        </button>
+                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                            <li>
+                                                
+                                                <button type="button" class="instruction btn btn-primary full-button"
+                                                    data-bs-toggle="modal" data-bs-target="#help1">help1
+                                                    </button>
+                                            </li>
+                                            <li>
+                                            
+                                                <button type="button" class="instruction btn btn-primary full-button" 
+                                                data-bs-toggle="modal" data-bs-target="#help2">help2
+                                                </button>
+                                            </li>
+                                            <li>
+                                            
+                                                <button type="button" class="instruction btn btn-primary full-button" 
+                                                data-bs-toggle="modal" data-bs-target="#help3">help3
+                                                </button>
+                                            </li>
+                                        </ul>
+                                        <button class="btn btn-secondary dropdown-toggle" type="button"
+                                            id="dropdownMenuButton" data-bs-toggle="dropdown"
+                                            style="margin-top: 150px; margin-left: 50px;  ">
+                                            提出建议<br />Feedback
+                                        </button>
+                                        <ul class="dropdown-menu" aria-labelledby="feedback" style="background-color:
+                                         rgba(224, 214, 195, 0.5);">
+                                            <a href="https://www.peak-re.com/contact-us/">visit website</a>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- <nav class="navbar-expand-lg navbar-light bg-light d-flex justify-content-right"> -->
+                            <nav class="navbar-expand-lg  " style="position: fixed;">
+                                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                                    aria-label="Toggle navigation">
+                                    <div class="burger burger4">
+                                        <div></div>
+                                    </div>
+                                </button>
+                                <!-- style="width: min-content;" -->
+                                <div class="collapse navbar-collapse" id="navbarNav" style="width: 100px;">
+                                    <ul class="navbar-nav">
+                                        <li class="nav-item active" style="width: 50px;">
+                                            <a class="btn btn-primary full-button" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button"
+                                                aria-controls="offcanvasExample" style=" border: none; background-color: orange;">
+                                                <!-- icon="" -->
+                                                <img class="help" src="image.png" style="padding-bottom: 10px;">
+                                            </a>
+                                        </li>
+                                        <li class="nav-item" style="width: 100px; display: flex;">
+                                            <a class="nav-link" href="https://www.peak-re.com/en/">
+                                                <img src="https://www.peak-re.com/media/sqbdjphp/peak-re-logo.svg">
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </nav>
+                        </div>
+                    </div>
+                </nav>
+            </header>
+
+
+            <!-- 底部导航栏 -->
+            <footer class="container-fluid">
+                <div class="row">
+                    <div class="col-2">
+                        <button type="button" class="btn btn-primary full-button" data-bs-toggle="modal"
+                            data-bs-target="#hello">
+                            <div class="lang" key="LEGEND"> 
+                            </div>
+                            
+                        </button>
+                    </div>
+
+                    <div class="col-2 dropup">
+                        <button type="button" class=" btn  btn-primary full-button" data-bs-toggle="dropdown">
+                        <div class="lang" key="RAINFALL">
+                        </button>
+
+                        <ul class="dropdown-menu" style="background-color: rgba(222, 171, 88, 0.6);">
+                            <div class="container mt-3">
+                                <form action="/action_page.php">
+                                    <label for="customRange"
+                                        style="color: rgb(11, 13, 2) ;font-style: normal; font-style: italic;">选择值(choice
+                                        range): <span id="rangeValue">0</span></label>
+                                    <input type="range" class="form-range" id="customRange" name="points" min="0"
+                                        max="4" value="0" oninput="updateRangeValue(this.value)">
+                                    <div id="current-time"></div>
+                                    <button type="submit" class="btn btn-primary mt-3">check</button>
+                                </form>
+                            </div>
+                        </ul>
+                    </div>
+
+
+
+
+
+                    <div class="col-2">
+                        <button type="button" class="btn btn-primary full-button" data-bs-toggle="modal"
+                            data-bs-target="#insight">
+                            <div class="lang" key="INSIGHT">
+                        </button>
+                    </div>
+                    <div class="col-2">
+                        <button class="btn btn-primary full-button" type="button" data-bs-toggle="modal"
+                            data-bs-target="#list">
+                            <div class="lang" key="TC LIST">
+                        </button>
+                    </div>
+                    <div class="col-2">
+                        <button class="btn btn-primary full-button" type="button" data-bs-toggle="modal"
+                            data-bs-target="#seek">
+                            <div class="lang" key="SEEK">
+                        </button>
+                    </div>
+                    <div class="col-2">
+                        <!-- <button class="btn btn-primary full-button" type="button" data-toggle="modal"
+                        data-target="#myModal">Click Me</button> -->
+                        <div style="text-align: center; color: grey; padding: 0; width: 100%;">
+                            <div class="lang" key="PROCESS">
+                            </div> 
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
+                                    aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75% ;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container"></div>
+                <div class="row" id="color-indication">
+                    <div class="col" id="suTY">
+                        suTY
+                    </div>
+                    <div class="col" id="STY">
+                        STY
+                    </div>
+                    <div class="col" id="TY">
+                        TY
+                    </div>
+                    <div class="col" id="STS">
+                        STS
+                    </div>
+                    <div class="col" id="TS">
+                        TS
+                    </div>
+                    <div class="col" id="TD">
+                        TD
+                    </div>
+
+            </footer>
+        </div>
+
+    </div>
+
+
+
+    <div class="modal fade" id="hello">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="modal-body">
+                    <div id="demo" class="carousel slide" data-bs-ride="carousel">
+
+                        <!-- Indicators/dots -->
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
+                            <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
+                            <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
+                        </div>
+
+                        <!-- The slideshow/carousel -->
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                台风等级| CMA Wind Intensity
+                                <img src="Picture1.png" class="d-block" style="width:100% ;height: 300px;">
+                            </div>
+                            <div class="carousel-item">
+                                风力等级转换表|Scale Conversion
+                                <img src="Picture2.png" class="d-block" style="width:100%;height: 300px;">
+                            </div>
+                            <div class="carousel-item">
+                                降水等级|Rainfall Intensity
+                                <img src="Picture3.png" class="d-block" style="width:100%;height: 300px;">
+                            </div>
+                        </div>
+
+                        <!-- Left and right controls/icons -->
+                        <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon"
+                                style="display: inline-block; margin-top: 50px;"></span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+                            <span class="carousel-control-next-icon"
+                                style="display: inline-block; margin-top: 50px;"></span>
+                        </button>
+                    </div>
+
+                </div>
+
+
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="insight">
+        <div class="modal-dialog">
+
+
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="modal-title">
+                        STI Insights | 台风所报告
+                    </div>
+                </div>
+                <div class="modal-body">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="list">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="modal-title">
+                        事件列表|TC List
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <ul class="pagination">
+                        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                    </ul>
+                </div>
+                <div class="modal-footer">
+
+
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">存档|Archive</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">关闭|Close</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="seek">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="modal-body">
+                    <div class="container mt-3">
+                        <form action="/action_page.php">
+                            <div class="mb-3 mt-3">
+                                <label for="city">City:</label>
+                                <input type="search" class="form-control" id="city" placeholder="Enter city"
+                                    name="city">
+                            </div>
+                            <div class="mb-3">
+                                <label for="date">Date:</label>
+                                <input type="date" class="form-control" id="date" placeholder="Enter date" name="date">
+                            </div>
+                            <div class="form-check mb-3">
+                                <label class="form-check-label">
+                                    <input class="form-check-input" type="checkbox" name="remember"> Remember me
+                                </label>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">关闭|Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="modal fade" id="help1" >
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="modal-title">
+                       help1
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <div data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="0">
+                    
+                        <nav class="navbars navbar-expand-sm bg-dark navbar-dark fixed-top">
+                            <div class="container-fluid">
+                                <ul class="navbar-nav">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#section1">Section 1</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#section2">Section 2</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#section3">Section 3</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </nav>
+                    
+                        <div id="section1" class="container-fluid" style="padding:100px 20px; ">
+                           <img src="help1.png" style="width: inherit;">
+                        </div>
+                    
+                        <div id="section2" class="container-fluid" style="padding:100px 20px;">
+                            <img src="help2.png" style="width: inherit;">  
+                        </div>
+                    
+                        <div id="section3" class="container-fluid bg-secondary text-white" style="padding:100px 20px;">
+                        <img src="help1.png" style="width: inherit;">
+                        </div>
+                    
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- <script>
+
+        $(document).ready(function () {
+            $('.navbar-toggler').click(function () {
+                $('.navbar-collapse').toggleClass('show');
+            });
+        });
+
+
+
+        $(".burger").addClass("unToggled");
+        $(".burger").click(function () {
+            $(this).toggleClass("toggled");
+            $(this).toggleClass("unToggled");
+            // also open menu here...
+        });
+    </script> -->
+
+  
+
+    <script>
+        $(document).ready(function () {
+            // Bootstrap 5 会自动处理 navbar-toggler 的点击事件
+            // $('.navbar-toggler').click(function () {
+            //     $('.navbar-collapse').toggleClass('show'); // 不需要手动处理
+            // });
+
+            $(".burger").addClass("unToggled");
+            $(".burger").click(function () {
+                $(this).toggleClass("toggled");
+                $(this).toggleClass("unToggled");
+                // 这里可以添加打开菜单的逻辑
+                // 例如：$('.navbar-collapse').toggleClass('show'); // 如果需要手动控制
+            });
+        });
+    </script>
+</body>
+
+</html>
