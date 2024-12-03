@@ -3,15 +3,37 @@
     flex-direction: column;
     min-height: 100vh;
     display: flex;
-    color: rgba(163, 150, 150, 0.9);
+    color: blue;
     overflow: hidden;
 }
 
 a {
     text-decoration: none;
-    
+    /* display: block; */
     color: #1b79e4;
 }
 
+.instruction{
+    background-color: #fff!important;
+}
+
+ input[type="range"]::-webkit-slider-thumb {
+     -webkit-appearance: none;
+     /* For Chrome and Safari */
+     appearance: none;
+     /* For modern browsers */
+     width: 20px;
+     /* 滑块的宽度 */
+     height: 20px;
+     /* 滑块的高度 */
+     background: #007bff;
+     /* 滑块颜色 */
+     border: 2px solid #ffffff;
+     /* 滑块边框颜色 */
+     border-radius: 50%;
+     /* 滑块的圆角 */
+     cursor: pointer;
+     /* 鼠标悬停效果 */
+ }
 
 
