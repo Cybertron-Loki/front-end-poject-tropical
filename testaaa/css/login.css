@@ -1,0 +1,269 @@
+/* button{ */
+/* margin-top: 0px;
+  margin-bottom: 5px;
+  background-color: #fff;
+  border: none;
+  color: aqua; */
+
+/* } */
+span:hover {
+    background-color: #fff;
+    color: greenyellow;
+}
+
+.draw {
+    margin-top: 0px;
+}
+
+button {
+    background: none;
+    border: 0;
+    box-sizing: border-box;
+    box-shadow: inset 0 0 0 2px white;
+    background-color: #fff !important;
+    color: silver !important;
+    font-size: inherit;
+    font-weight: 700;
+
+    padding-bottom: 0.5em;
+    text-align: center;
+    text-transform: capitalize;
+    position: relative;
+    vertical-align: middle;
+}
+
+button::before,
+button::after {
+    box-sizing: border-box;
+    content: '';
+    position: absolute;
+    width: 40%;
+    height: 100%;
+}
+
+.draw {
+    -webkit-transition: color 0.25s;
+    transition: color 0.25s;
+}
+
+.draw::before,
+.draw::after {
+    border: 2px solid transparent;
+    width: 0;
+    height: 0;
+}
+
+.draw::before {
+    top: 0;
+    left: 0;
+}
+
+.draw::after {
+    bottom: 0;
+    right: 0;
+}
+
+.draw:hover {
+    color: #60daaa;
+}
+
+.draw:hover::before,
+.draw:hover::after {
+    width: 100%;
+    height: 100%;
+}
+
+.draw:hover::before {
+    border-top-color: #60daaa;
+    border-right-color: #60daaa;
+    -webkit-transition: width 0.25s ease-out, height 0.25s ease-out 0.25s;
+    transition: width 0.25s ease-out, height 0.25s ease-out 0.25s;
+}
+
+.draw:hover::after {
+    border-bottom-color: #60daaa;
+    border-left-color: #60daaa;
+    -webkit-transition: border-color 0s ease-out 0.5s, width 0.25s ease-out 0.5s, height 0.25s ease-out 0.75s;
+    transition: border-color 0s ease-out 0.5s, width 0.25s ease-out 0.5s, height 0.25s ease-out 0.75s;
+}
+
+.form-floating {
+    margin-left: 35%;
+}
+
+h2 {
+    margin-top: 20vh;
+}
+
+
+
+.form-floating {
+    margin-left: 0px;
+}
+
+.row {
+    margin-top: 100px;
+}
+
+a {
+    position: relative;
+    display: inline-block;
+    padding: 25px 30px;
+    margin: 40px 0;
+    color: black;
+    text-decoration: none;
+    transition: 0.5s;
+    letter-spacing: 4px;
+    overflow: hidden;
+
+
+}
+
+a span {
+    position: absolute;
+    display: block;
+}
+
+a span:nth-child(1) {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(to right,
+            rgba(0, 123, 255, 0.6),
+            /* 蓝色 */
+            rgba(255, 0, 255, 0.6),
+            /* 粉色 */
+            rgba(255, 165, 0, 0.6)
+            /* 橙色 */
+        ),
+        linear-gradient(to bottom,
+            rgba(0, 123, 255, 0.3),
+            /* 蓝色，完全不透明 */
+            rgba(0, 123, 255, 0.1),
+            /* 蓝色，半透明 */
+            rgba(0, 123, 255, 0)
+            /* 蓝色，完全透明 */
+        );
+    animation: animate1 2s linear infinite;
+}
+
+@keyframes animate1 {
+    0% {
+        left: -100%;
+    }
+
+    50%,
+    100% {
+        left: 100%;
+    }
+}
+
+a span:nth-child(2) {
+    top: -100%;
+    right: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(to right,
+            rgba(0, 123, 255, 0.6),
+            /* 蓝色 */
+            rgba(255, 0, 255, 0.6),
+            /* 粉色 */
+            rgba(255, 165, 0, 0.6)
+            /* 橙色 */
+        ),
+        linear-gradient(to bottom,
+            rgba(0, 123, 255, 0.3),
+            /* 蓝色，完全不透明 */
+            rgba(0, 123, 255, 0.1),
+            /* 蓝色，半透明 */
+            rgba(0, 123, 255, 0)
+            /* 蓝色，完全透明 */
+        );
+    animation: animate2 2s linear infinite;
+    animation-delay: 2s;
+}
+
+@keyframes animate2 {
+    0% {
+        top: -100%;
+    }
+
+    50%,
+    100% {
+        top: 100%;
+    }
+}
+
+a span:nth-child(3) {
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(to right,
+            rgba(0, 123, 255, 0.6),
+            /* 蓝色 */
+            rgba(255, 0, 255, 0.6),
+            /* 粉色 */
+            rgba(255, 165, 0, 0.6)
+            /* 橙色 */
+        ),
+        linear-gradient(to bottom,
+            rgba(0, 123, 255, 0.3),
+            /* 蓝色，完全不透明 */
+            rgba(0, 123, 255, 0.1),
+            /* 蓝色，半透明 */
+            rgba(0, 123, 255, 0)
+            /* 蓝色，完全透明 */
+        );
+    animation: animate3 2s linear infinite;
+    animation-delay: 2s;
+}
+
+@keyframes animate3 {
+    0% {
+        right: -100%;
+    }
+
+    50%,
+    100% {
+        right: 100%;
+    }
+}
+
+
+a span:nth-child(4) {
+    bottom: -100%;
+    left: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(to right,
+            rgba(0, 123, 255, 0.6),
+            /* 蓝色 */
+            rgba(255, 0, 255, 0.6),
+            /* 粉色 */
+            rgba(255, 165, 0, 0.6)
+            /* 橙色 */
+        ),
+        linear-gradient(to bottom,
+            rgba(0, 123, 255, 0.3),
+            /* 蓝色，完全不透明 */
+            rgba(0, 123, 255, 0.1),
+            /* 蓝色，半透明 */
+            rgba(0, 123, 255, 0)
+            /* 蓝色，完全透明 */
+        );
+    animation: animate4 2s linear infinite;
+    animation-delay: 2.0s;
+}
+
+@keyframes animate4 {
+    0% {
+        bottom: -100%;
+    }
+
+    50%,
+    100% {
+        bottom: 100%;
+    }
+}

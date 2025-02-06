@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>my collection artist</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .concert-card {
+            margin: 20px 0;
+            padding: 15px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .price {
+            font-weight: bold;
+            color: #dc3545;
+            /* Bootstrap danger color */
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h2 class="text-center mt-4">my collection conert</h2>
+
+        <div id="concertsContainer" class="mt-4">
+            <!-- 动态加载音乐会信息 -->
+        </div>
+
+        <div id="noConcertsMessage" class="alert alert-info mt-4" style="display: none;">
+            nothing here yet...
+        </div>
+    </div>
+
+    <script>
+        const userId = localStorage.getItem('userId'); 
+        const jwt = localStorage.getItem('jwt'); 
+
+        async function fetchFavoriteConcerts() {
+            try {
+                const response = await fetch(`http://localhost:1337/api/collection?userId=${userId}`, {
+                    headers: {
+                        'Authorization': `Bearer ${jwt}`
+                    }
+                });
+                const data = await response.json();
+                return data; // 假设返回的数据结构包含收藏的音乐会
+            } catch (error) {
+                console.error('获取收藏音乐会失败:', error);
+                return []; // 返回空数组以防止后续错误
+            }
+        }
+
+        async function fetchConcertDetails(concertId) {
+            try {
+                const response = await fetch(`http://localhost:1337/api/concerts/${concertId}`);
+                const data = await response.json();
+                return data.data; // 返回音乐会的详细信息
+            } catch (error) {
+                console.error('获取音乐会详情失败:', error);
+                return null; // 返回 null 表示获取失败
+            }
+        }
+
+        async function renderConcerts() {
+            const concerts = await fetchFavoriteConcerts();
+            const concertsContainer = document.getElementById('concertsContainer');
+            const noConcertsMessage = document.getElementById('noConcertsMessage');
+            concertsContainer.innerHTML = ''; // 清空容器
+
+            if (concerts.length === 0) {
+                noConcertsMessage.style.display = 'block'; // 显示无收藏信息
+            } else {
+                noConcertsMessage.style.display = 'none'; // 隐藏无收藏信息
+
+                for (const concert of concerts) {
+                    const concertDetails = await fetchConcertDetails(concert.concertId); // 获取每个音乐会的详细信息
+                    if (concertDetails) {
+                        const card = document.createElement('div');
+                        card.className = 'concert-card';
+                        card.innerHTML = `
+                            <h4>${concertDetails.attributes.title}</h4>
+                            <p><strong>地点:</strong> ${concertDetails.attributes.location}</p>
+                            <p><strong>时间:</strong> ${concertDetails.attributes.date}</p>
+                            <p><strong>场馆:</strong> ${concertDetails.attributes.venue}</p>
+                            <p class="price">价格：¥${concertDetails.attributes.price}</p>
+                            <button class="btn btn-danger" onclick="removeConcert(${concertDetails.id})">取消收藏</button>
+                        `;
+                        concertsContainer.appendChild(card);
+                    }
+                }
+            }
+        }
+
+        async function removeConcert(concertId) {
+            try {
+                const response = await fetch(`http://localhost:1337/api/collection`, {
+                    method: 'DELETE',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${jwt}`
+                    },
+                    body: JSON.stringify({ userId: userId, concertId: concertId })
+                });
+
+                if (!response.ok) {
+                    throw new Error('取消收藏失败');
+                }
+
+                alert(`已取消收藏音乐会 ID: ${concertId}`);
+                renderConcerts(); // 重新渲染列表
+            } catch (error) {
+                console.error('取消收藏时出错:', error);
+            }
+        }
+
+        // 初始化页面
+        window.onload = renderConcerts;
+    </script>
+
+</body>
+
+</html>
