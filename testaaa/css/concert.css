@@ -1,0 +1,114 @@
+  body {
+      background-color: #f8f9fa;
+  }
+
+  .header {
+      background: linear-gradient(90deg, #FF6F61, #6FA3EF, pink);
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+     
+  }
+
+  .price {
+      font-size: 1.5em;
+      color: #d9534f;
+  }
+
+  .card {
+      background-color: white;
+      color: black;
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 20px;
+  }
+
+  #show {
+      margin-bottom: 50px !important;
+      margin-left: 60px;
+      margin-right: 60px;
+  }
+
+  .search-bar {
+      width: 50%;
+      margin: 0 auto;
+  }
+
+  .header {
+      margin-left: 50px;
+      margin-right: 50px;
+      border-radius: 10px;
+      height: 20%;
+
+  }
+
+  .favorite-icon {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 1.5em;
+      color: #FF6F61;
+      /* Heart color */
+      cursor: pointer;
+      transition: color 0.3s;
+  }
+
+  .favorite-icon:hover {
+      color: #d9534f;
+      /* Darker on hover */
+  }
+
+  .nav-link{
+    text-decoration: none;
+    color: white!important;
+    display: block;
+  }
+
+
+
+  /* 小屏幕下（手机） */
+
+  @media screen and (min-width: 516px) {
+      .navbar-toggler {
+          display: none;
+      }
+
+      .navbar-expand-lg {
+          display: none;
+      }
+
+      #phoneNav {
+          display: none;
+      }
+  }
+
+  @media screen and (min-width: 992px) {
+
+      /* .navbar-toggler {
+        display: none;
+    } */
+    
+
+    
+
+  }
+
+  .hamburger-menu {
+      display: inline-block;
+      cursor: pointer;
+      padding: 6px;
+      background-color: #333;
+      border-radius: 5px;
+      margin-top: 1.5px;
+      margin-left: 5px;
+  }
+
+  .bar {
+      display: block;
+      width: 20px;
+      height: 4px;
+      margin: 3px 0;
+      background-color: white;
+      transition: all 0.3s;
+      border: none;
+  }
