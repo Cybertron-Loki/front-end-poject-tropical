@@ -53,9 +53,9 @@
                     }
                 });
                 const data = await response.json();
-                return data; // 假设返回的数据结构包含收藏的音乐会
+                return data; 
             } catch (error) {
-                console.error('获取收藏音乐会失败:', error);
+                console.error('fail:', error);
                 return []; // 返回空数组以防止后续错误
             }
         }
@@ -66,7 +66,7 @@
                 const data = await response.json();
                 return data.data; // 返回音乐会的详细信息
             } catch (error) {
-                console.error('获取音乐会详情失败:', error);
+                console.error('fail:', error);
                 return null; // 返回 null 表示获取失败
             }
         }
@@ -78,9 +78,9 @@
             concertsContainer.innerHTML = ''; // 清空容器
 
             if (concerts.length === 0) {
-                noConcertsMessage.style.display = 'block'; // 显示无收藏信息
+                noConcertsMessage.style.display = 'block';
             } else {
-                noConcertsMessage.style.display = 'none'; // 隐藏无收藏信息
+                noConcertsMessage.style.display = 'none'; 
 
                 for (const concert of concerts) {
                     const concertDetails = await fetchConcertDetails(concert.concertId); // 获取每个音乐会的详细信息
@@ -113,17 +113,17 @@
                 });
 
                 if (!response.ok) {
-                    throw new Error('取消收藏失败');
+                    throw new Error('failed');
                 }
 
-                alert(`已取消收藏音乐会 ID: ${concertId}`);
+                alert(`cancealed ID: ${concertId}`);
                 renderConcerts(); // 重新渲染列表
             } catch (error) {
-                console.error('取消收藏时出错:', error);
+                console.error('fail:', error);
             }
         }
 
-        // 初始化页面
+        
         window.onload = renderConcerts;
     </script>
 

@@ -6,7 +6,7 @@ async function fetchConcerts() {
     try {
         const response = await fetch('http://localhost:1337/api/tickets?populate=concert_ticket', {
             headers: {
-                'Authorization': `Bearer 2c09109074d12610bd81ca478ced9a0c0b2b371f2aa177017c9fb81970d1a15b9ce1028bf291bd7b7b44498f4d4ea89b88b814fdbb2e3a8676d46ecb5e483ca51100858d27028f524658a769f460a538f6e90aa548db0736312361b499f6073b56ca6709d2d3e5c6be14a5041af911c94ba549fb6475ec4d00930b6147d6632b `
+                'Content-Type': 'application/json',
             
             }
         });
@@ -49,7 +49,7 @@ async function renderConcerts(concerts) {
                     <p class="card-text"><strong>time:</strong>${concert.performanceDate}</p>
                     <p class="card-text"><strong>place:</strong>${concert.place}</p>
                     <p class="price">price：¥${concert.concert_ticket.priceA}+</p>
-                    <a href="ticket.html?id=${concert.concert_ticket.id}&title=${concert.title}" class="btn btn-primary">查看详情</a>
+                    <a href="ticket.html?id=${concert.concert_ticket.id}&title=${concert.title}" class="btn btn-primary">check details</a>
                 </div>
             </div>
         `;
@@ -110,7 +110,7 @@ async function renderConcerts(concerts) {
 // async function removeFromFavorites(concertId) {
 //     try {
 //         const jwt = localStorage.getItem('jwt');
-//         // 假设你需要通过concertId和userId来查找并删除收藏
+//        
 //         const response = await fetch('http://localhost:1337/api/collection', {
 //             method: 'DELETE',
 //             headers: {
