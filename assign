@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My time table</title>
+</head>
+
+<body>
+    <center>
+        <a href="https://www.cityu.edu.hk/" style="text-decoration: none;">
+            <img src="https://template.cityu.edu.hk/template/img/logos/cityu.png" alt="City University" height="100">
+            <img src="https://template.cityu.edu.hk/template/img/logos/cityu_dec.png" width="400">
+        </a>
+        <hr>
+        <h1>CS5281</h1>
+        <h2>Internet Application Development</h2>
+        <table border="1">
+            <caption><u>Schedule (Semester B 2024/25)</u></caption>
+            <thead>
+                <tr>
+                    <th>Day</th>
+                    <th>Time</th>
+                    <th>Classroom</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Fri</td>
+                    <td>18:30-20:30</td>
+                    <td>LI - 1503</td>
+                </tr>
+                <tr>
+                    <td>Fri</td>
+                    <td>20:30-21:30</td>
+                    <td>LI - 1503</td>
+                </tr>
+            </tbody>
+        </table>
+    </center>
+</body>
+
+</html>
