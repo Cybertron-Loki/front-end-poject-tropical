@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/language.js" defer></script>
+    <script src="js/rainfall.js" defer></script>
+    <script src="js/map.js" defer></script>
+    <script src="https://webapi.amap.com/loader.js"></script>
+    <script src="js/legend.js" defer></script>
+    <script src="js/guide.js" defer></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"rel="stylesheet" >
+    <link href="body.css" rel="stylesheet">
+    <link href="header.css" rel="stylesheet">
+    <link href="footer.css" rel="stylesheet">
+    <link href="phonePage.css" rel="stylesheet">
+
+    <link href="map.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- 整个页面的容器 -->
+
+
+
+    <div class="main" id="map">
+
+        <div class="container-fluid " id="whole-bg" style=" background-size: cover; z-index: 1;">
+            <header class="top" style="z-index: 100;">
+                <!-- header部分 -->
+                <nav class="container-fluid" id="header-nav">
+                    <!-- 头部导航栏 -->
+                    <div class="row">
+                        <!-- bootstrap栅格系统 ，自适应屏幕-->
+                        <div class="col-8" id="col-left">
+                            <a href="tcat.peak-re.com">
+                                <img class="tropical-logo" src="https://tcat.peak-re.com/pic/TCT_Icon2.gif">
+                            </a>
+                            <a href="https://www.peak-re.com/en/">
+                                <img class="logo" src="https://www.peak-re.com/media/sqbdjphp/peak-re-logo.svg">
+                            </a>
+                        </div>
+
+                        <div class="col-4 d-flex justify-content-end " id="col-right">
+
+                            <div class="dropdown">
+                                <button type="button" class="btn-lang " id="languageButton" aria-expanded="false">
+                                   <i class="bi bi-question-circle"></i>
+                                </button>
+                            </div>
+
+                           
+                          
+                            <button type="button" class="help lang" data-bs-toggle="modal" data-bs-target="#guide" aria-label="Left Align">         
+                                        <i class="bi bi-question-circle"></i> 
+                            </button>
+
+                            <button type="button" id="phoneNav" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                                <div class="hamburger-menu">
+                                    <div class="bar"></div>
+                                    <div class="bar"></div>
+                                    <div class="bar"></div>
+                                </div>
+                            </button>
+
+
+                        </div>
+                        <nav class="navbar-expand-lg ">
+                            <div class="collapse navbar-collapse" id="navbarNav">
+                                <ul class="navbar-nav">
+                                    <li class="nav-item ">
+                                        <a class="nav-link" href="https://tcat.peak-re.com/pic/TCAT_UG.pdf" target="_blank" rel="noopener noreferrer">
+                                            <i class="bi bi-question-circle"></i> 
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="https://www.peak-re.com/en/">
+                                            <img src="https://www.peak-re.com/media/sqbdjphp/peak-re-logo.svg">
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </nav>
+                    </div>
+                </nav>
+            </header>
+
+
+            <!-- 底部导航栏 -->
+            <footer class="container-fluid">
+                <div class="row">
+                    <div class="col">
+                        <button type="button" class="btn btn-primary full-button" data-bs-toggle="modal"
+                            data-bs-target="#Legend" id="legend">
+                            <div class="lang" key="LEGEND">
+                            </div>
+
+                        </button>
+                    </div>
+
+                    <div class="col">
+                        <button type="button" class=" btn  btn-primary full-button" data-bs-toggle="modal" id="rainfall"
+                            data-bs-target="#Rainfall">
+                            <div class="lang" key="RAINFALL">
+                        </button>
+                    </div>
+
+                    <div class="col">
+                        <button type="button" class="btn btn-primary full-button" data-bs-toggle="modal"
+                            data-bs-target="#Insight" id="insight">
+                            <div class="lang" key="INSIGHT">
+                        </button>
+                    </div>
+                    <div class="col">
+                        <button class="btn btn-primary full-button" type="button" data-bs-toggle="modal"
+                            data-bs-target="#TC-List" id="TC-list">
+                            <div class="lang" key="TC LIST">
+                        </button>
+                    </div>
+                  
+                </div>
+
+                <div class="row" id="color-indication">
+                    <div class="col-2 " id="suTY">
+                        <div class="lang" key="suTY">
+
+                        </div>
+                    </div>
+                    <div class="col-2" id="STY">
+                        <div class="lang" key="STY">
+                        </div>
+                    </div>
+                    <div class="col-2" id="TY">
+                        <div class="lang" key="TY">
+                        </div>
+                    </div>
+                    <div class="col-2" id="STS">
+                        <div class="lang" key="STS">
+                        </div>
+                    </div>
+                    <div class="col-2" id="TS">
+                        <div class="lang" key="TS">
+                        </div>
+                    </div>
+                    <div class="col-2" id="TD">
+                        <div class="lang" key="TD">
+                        </div>
+                    </div>
+
+            </footer>
+        </div>
+
+    </div>
+
+
+
+    <div class="modal fade" id="Legend">
+        <div id="accordion">
+            <div class="modal-dialog footer-modal">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <button class="btn btn-primary lang" id="rainfallButton" data-bs-toggle="collapse"
+                            data-bs-target="#rainfall-intensity" key="Rainfall Intensity"></button>
+                        <div id="rainfall-intensity" class="collapse" data-bs-parent="#accordion">
+                            <table>
+                                <thead style="text-align: center;">
+                                    <tr id="tr_legend">
+                                        <th style="width:40%; text-align:center;">12hr Rainfall</br>降雨量</th>
+                                        <th style="width:40%; text-align:center;">24hr Rainfall</br>降雨量</th>
+                                        <th style="width:60%; text-align:center;">Rainfall Scale</br>降水等级</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody style="text-align: center;">
+                                    <tr id="tr_legend" style="background-color:rgba(0,255,231,0.8)">
+                                        <td style="margin:0px;">0-4.9 mm</td>
+                                        <td style="margin:0px;">0-9.9 mm</td>
+                                        <td style="text-align:center;">小雨</td>
+                                    </tr>
+
+                                    <tr id="tr_legend" style="background-color:rgba(0,183,255,0.8)">
+                                        <td style="margin:0px;">5-14.9 mm</td>
+                                        <td style="margin:0px;">10-24.9 mm</td>
+                                        <td style="text-align:center;">中雨</td>
+                                    </tr>
+
+                                    <tr id="tr_legend" style="background-color:rgba(0,87,255,0.8)">
+                                        <td style="margin:0px;">15-29.9 mm</td>
+                                        <td style="margin:0px;">25-49.9 mm</td>
+                                        <td style="text-align:center;">大雨</td>
+                                    </tr>
+
+                                    <tr id="tr_legend" style="background-color:rgba(0,0,255,0.8)">
+                                        <td style="margin:0px;">30-69.9 mm</td>
+                                        <td style="margin:0px;">50-99.9 mm</td>
+                                        <td style="text-align:center;">暴雨</td>
+                                    </tr>
+
+                                    <tr id="tr_legend" style="background-color:rgba(103,0,255,0.8)">
+                                        <td style="margin:0px;">70-139.9 mm</td>
+                                        <td style="margin:0px;">100-249.9 mm</td>
+                                        <td style="text-align:center;">大暴雨</td>
+                                    </tr>
+
+                                    <tr id="tr_legend" style="background-color:rgba(199,0,255,0.8)">
+                                        <td style="margin:0px;"> 140</td>
+                                        <td style="margin:0px;"> 250</td>
+                                        <td style="text-align:center;">特大暴雨</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+
+                        </div>
+                        <button class="btn btn-primary lang" id="scaleButton" data-bs-toggle="collapse"
+                            data-bs-target="#scale-conversion" key="Scale Conversion"></button>
+                        <div id="scale-conversion" class="collapse" data-bs-parent="#accordion">
+                            <table>
+                                <thead>
+                                    <tr id="tr_legend">
+                                        <th>B/CMA</th>
+                                        <th>kt</th>
+                                        <th>mph</th>
+                                        <th>km/h</th>
+                                        <th>m/s</th>
+                                        <!--ter;">CMA</th> -->
+                                        <th>SS**</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody style="text-align: center;">
+                                    <tr id="tr_legend" style="background-color:rgba(57,181,156,0.1)">
+                                        <td>0</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>0.2</td>
+                                        <td></td>
+                                    </tr>
+
+                                    <tr id="tr_legend" style="background-color:rgba(57,181,156,0.2)">
+                                        <td>1</td>
+                                        <td>1-3</td>
+                                        <td>1-3</td>
+                                        <td>1-5</td>
+                                        <td>0.3-1.5</td>
+                                        <!-- <td style=""></td> -->
+                                        <td></td>
+                                    </tr>
+                                    <tr id="tr_legend" style="background-color:rgba(57,181,156,0.3)">
+                                        <td>2</td>
+                                        <td>4-6</td>
+                                        <td>4-7</td>
+                                        <td>6-11</td>
+                                        <td>1.6-3.3</td>
+                                        <!--le=""></td> -->
+                                        <td></td>
+                                    </tr>
+                                    <tr id="tr_legend" style="background-color:rgba(57,181,156,0.4)">
+                                        <td>3</td>
+                                        <td>7-10</td>
+                                        <td>8-12</td>
+                                        <td>12-19</td>
+                                        <td>3.4-5.4</td>
+                                        <!-- <td style=""></td> -->
+                                        <td></td>
+                                    </tr>
+                                    <tr id="tr_legend" style="background-color:rgba(57,181,156,0.5)">
+                                        <td>4</td>
+                                        <td>11-16</td>
+                                        <td>13-17</td>
+                                        <td>20-28</td>
+                                        <td>5.5-7.9</td>
+                                        <!-- <td style=""></td> -->
+                                        <td></td>
+                                    </tr>
+                                    <tr id="tr_legend" style="background-color:rgba(57,181,156,0.6)">
+                                        <td>5</td>
+                                        <td>17-21</td>
+                                        <td>18-24</td>
+                                        <td>29-38</td>
+                                        <td>8-10.7</td>
+                                        <!-- <td style=""></td> -->
+                                        <td style=""></td>
+                                    </tr>
+                                    <tr id="tr_legend" style="background-color:rgba(57,181,156,0.8)">
+                                        <td>6</br>TD</td>
+                                        <td>22-27</td>
+                                        <td>25-30</td>
+                                        <td>39-49</td>
+                                        <td>10.8-13.8</td>
+                                        <!-- <td style="text-align:center;">TD</td> -->
+                                        <td style="text-align:center;">TD*</td>
+                                    </tr>
+                                    <tr id="tr_legend" style="background-color:rgba(57,181,156,0.8)">
+                                        <td>7</br>TD</td>
+                                        <td>28-33</td>
+                                        <td>31-38</td>
+                                        <td>50-61</td>
+                                        <td>13.9-17.1</td>
+                                        <!-- <td style="text-align:center;">TD</td> -->
+                                        <td style="text-align:center;">TD*</td>
+                                    </tr>
+                                    <tr id="tr_legend" style="background-color:rgba(247,239,99,0.8)">
+                                        <td>8</br>TS</td>
+                                        <td>34-40</td>
+                                        <td>39-46</td>
+                                        <td>62-74</td>
+                                        <td>17.2-20.7</td>
+                                        <!-- <td style="text-align:center;">TS</td> -->
+                                        <td style="text-align:center;">TS*</td>
+                                    </tr>
+                                    <tr id="tr_legend" style="background-color:rgba(247,239,99,0.8)">
+                                        <td>9</br>TS</td>
+                                        <td>41–47</td>
+                                        <td>47–55</td>
+                                        <td>75–88</td>
+                                        <td>20.8–24.4</td>
+                                        <!-- <td style="text-align:center;">TS</td> -->
+                                        <td style="text-align:center;">TS*</td>
+                                    </tr>
+                                    <tr id="tr_legend" style="background-color:rgba(255,214,8,0.8)">
+                                        <td>10</br>STS</td>
+                                        <td>48–55</td>
+                                        <td>56–63</td>
+                                        <td>89–102</td>
+                                        <td>24.5–28.4</td>
+                                        <!-- <td style="text-align:center;">STS</td> -->
+                                        <td style="text-align:center;">TS*</td>
+                                    </tr>
+                                    <tr id="tr_legend" style="background-color:rgba(255,214,8,0.8)">
+                                        <td>11</br>STS</td>
+                                        <td>56–63</td>
+                                        <td>64–73</td>
+                                        <td>103–117</td>
+                                        <td>28.5–32.6</td>
+                                        <!-- <td style="text-align:center;">STS</td> -->
+                                        <td style="text-align:center;">TS*</td>
+                                    </tr>
+                                    <tr id="tr_legend" style="background-color:rgba(255,140,0,0.8)">
+                                        <td>12</br>TY</td>
+                                        <td>64-71</td>
+                                        <td>74-83</td>
+                                        <td>118-133</td>
+                                        <td>32.7-36.9</td>
+                                        <!-- <td style="text-align:center;">TY</td> -->
+                                        <td style="text-align:center;">1</td>
+                                    </tr>
+                                    <tr id="tr_legend" style="background-color:rgba(255,140,0,0.8)">
+                                        <td>13*</br>TY</td>
+                                        <td>72-80</td>
+                                        <td>84-93</td>
+                                        <td>134-149</td>
+                                        <td>37-41.4</td>
+                                        <!-- <td style="text-align:center;">TY</td> -->
+                                        <td style="text-align:center;">2</td>
+                                    </tr>
+                                    <tr id="tr_legend" style="background-color:rgba(231,49,24,0.8)">
+                                        <td>14*</br>STY</td>
+                                        <td>81-89</td>
+                                        <td>94-103</td>
+                                        <td>150-166</td>
+                                        <td>41.5-46.1</td>
+                                        <!-- <td style="text-align:center;">STY</td> -->
+                                        <td style="text-align:center;">3</td>
+                                    </tr>
+                                    <tr id="tr_legend" style="background-color:rgba(231,49,24,0.8)">
+                                        <td>15*</br>STY</td>
+                                        <td>90-99</td>
+                                        <td>104-114</td>
+                                        <td>167-183</td>
+                                        <td>46.2-50.9</td>
+                                        <!-- <td style="text-align:center;">STY</td> -->
+                                        <td style="text-align:center;">3</td>
+                                    </tr>
+                                    <tr id="tr_legend" style="background-color:rgba(181,33,8,0.8)">
+                                        <td>16*</br>SuTY</td>
+                                        <td>100-108</td>
+                                        <td>115-125</td>
+                                        <td>184-201</td>
+                                        <td>51-56</td>
+                                        <!-- <td style="text-align:center;">SuTY</td> -->
+                                        <td style="text-align:center;">4</td>
+                                    </tr>
+                                    <tr id="tr_legend" style="background-color:rgba(181,33,8,0.8)">
+                                        <td>17*</br>SuTY</td>
+                                        <td>109-119</td>
+                                        <td>126-137</td>
+                                        <td>202-220</td>
+                                        <td>56.1-61.2</td>
+                                        <!-- <td style="text-align:center;">SuTY</td> -->
+                                        <td style="text-align:center;">4</td>
+                                    </tr>
+                                    <tr id="tr_legend" style="background-color:rgba(181,33,8,0.8)">
+                                        <td>17*</br>SuTY</td>
+                                        <td>119</td>
+                                        <td>137</td>
+                                        <td>220</td>
+                                        <td>61.2</td>
+                                        <!-- <td style="text-align:center;">SuTY</td> -->
+                                        <td style="text-align:center;">5</td>
+                                    </tr>
+                                </tbody>
+
+                            </table>
+                        </div>
+                        <button class="btn btn-primary lang" data-bs-toggle="collapse"
+                            data-bs-target="#CMA-wind-intensity" key="CMA wind intensity"></button>
+                        <div id="CMA-wind-intensity" class="collapse" data-bs-parent="#accordion">
+                            <table class="table table-condensed" style="margin-bottom:0px;">
+                                <thead>
+                                    <tr id="tr_legend">
+                                        <th style="width:30%">m/s<br>米/秒</th>
+                                        <th style="width:30%">Beaufort (B)<br>蒲福风级</th>
+                                        <th style="width:40%">CMA Scale<br>中央台等级</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    <tr id="tr_legend">
+                                        <td style="margin:0px;background-color:rgba(57,181,156,0.8)">10.8 – 17.1</td>
+                                        <td>6 - 7</td>
+                                        <td>Tropical Depression (TD)</br>热带低压</td>
+                                        <!--  <td>Tropical Depression</td> -->
+
+                                    </tr>
+
+                                    <tr id="tr_legend">
+                                        <td style="margin:0px;background-color:rgba(247,239,99,0.8)">17.2 – 24.4</td>
+                                        <td>8 - 9</td>
+                                        <td>Tropical Storm (TS)</br>热带风暴</td>
+
+                                    </tr>
+
+                                    <tr id="tr_legend">
+                                        <td style="margin:0px;background-color:rgba(255,214,8,0.8)">24.5 – 32.6</td>
+                                        <td>10 - 11</td>
+                                        <td>Severe Tropial Storm (STS)</br>强热带风暴</td>
+
+                                    </tr>
+
+                                    <tr id="tr_legend">
+                                        <td style="margin:0px;background-color:rgba(255,140,0,0.8)">32.7 – 41.4</td>
+                                        <td>12 - 13</td>
+                                        <td>Typhoon (TY)</br>台风</td>
+
+                                    </tr>
+
+                                    <tr id="tr_legend">
+                                        <td style="margin:0px;background-color:rgba(231,49,24,0.8)">41.5 – 50.9</td>
+                                        <td>14 - 15</td>
+                                        <td>Severe Typhoon (STY)</br>强台风</td>
+
+                                    </tr>
+
+                                    <tr id="tr_legend">
+                                        <td style="margin:0px;background-color:rgba(181,33,8,0.8)">>= 51.0</td>
+                                        <td>>= 16</td>
+                                        <td>Super Typhoon (Su.TY)</br>超强台风</td>
+
+
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger lang" data-bs-dismiss="modal" key="Close"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div class="modal fade" id="Rainfall">
+        <div class="modal-dialog footer-modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="modal-body">
+                        <div class="modal-title lang" key="STI Insights">
+                        </div>
+                       
+
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger lang" data-bs-dismiss="modal" key="Close"></button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="modal fade" id="Insight">
+        <div class="modal-dialog footer-modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="modal-body">
+                        <div class="modal-title lang" key="STI Insights">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger lang" data-bs-dismiss="modal" key="Close"></button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="modal fade" id="TC-List">
+        <div class="modal-dialog footer-modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="modal-title lang" key="TC LIST">
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <form id="typhoonForm">
+                        <label>
+                            <input type="checkbox" name="Typhoon" value="typhoon1"> 台风1
+                        </label>
+                        <br>
+                        <label>
+                            <input type="checkbox" name="Typhoon" value="typhoon2"> 台风2
+                        </label>
+                        <br>
+                        <label>
+                            <input type="checkbox" name="Typhoon" value="typhoon3"> 台风3
+                        </label>
+                        <button type="button" onclick="just_show_typhoon()">显示台风</button>
+                    </form>
+                    <ul class="pagination">
+                        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger lang" data-bs-dismiss="modal" key="Archive"></button>
+                    <button type="button" class="btn btn-danger lang" data-bs-dismiss="modal" key="Close"></button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="modal fade" id="help1">
+        <div class="modal-dialog ">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="modal-title">
+                        help1
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <div data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="0">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger lang" data-bs-dismiss="modal" key="Close"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- guide modal part -->
+
+    <div class="modal fade" id="guide">
+        <div class="modal-dialog modal-fullscreen" style="position: fixed;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="btn btn-danger lang" data-bs-dismiss="modal" key="Close"></button>
+                </div>
+                <div class="modal-body"
+                    style="display: flex; align-items: flex-end; justify-content: flex-start; height: 100%;">
+                    <div class="mb-3" style="position: sticky; color: black;">
+                    
+                        <img src="legend.png" alt="" style="width:100%"></img>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary lang" data-bs-target="#rainfall-modal" data-bs-toggle="modal"
+                        data-bs-dismiss="modal" key="next"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Second modal dialog -->
+    <div class="modal fade" id="rainfall-modal" aria-hidden="true" aria-labelledby="..." tabindex="-1">
+        <div class="modal-dialog modal-fullscreen" style="position: fixed;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="btn btn-danger lang" data-bs-dismiss="modal" key="Close"></button>
+                </div>
+                <div class="modal-body"
+                    style="display: flex; align-items: flex-end; justify-content: flex-start; height: 100%;">
+                    <div class="mb-3" style="position: sticky; color: black;">
+                        this is legend
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary lang" data-bs-target="#guide" data-bs-toggle="modal" data-bs-dismiss="modal"
+                        key="previous"></button>
+                    <button class="btn btn-primary lang" data-bs-target="#insight-modal" data-bs-toggle="modal"
+                        data-bs-dismiss="modal" key="next"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="insight-modal" aria-hidden="true" aria-labelledby="..." tabindex="-1">
+        <div class="modal-dialog modal-fullscreen" style="position: fixed;">
+            <div class="modal-content">
+                <div class="modal-footer">
+                    <button class="btn btn-primary lang" data-bs-target="#insight-modal" data-bs-toggle="modal" data-bs-dismiss="modal"
+                        key="previous"></button>
+                    <button class="btn btn-primary lang" data-bs-target="#TC-List-modal" data-bs-toggle="modal"
+                        data-bs-dismiss="modal" key="next"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="TC-List-modal" aria-hidden="true" aria-labelledby="..." tabindex="-1">
+        <div class="modal-dialog modal-fullscreen" style="position: fixed;">
+            <div class="modal-content">
+                <div class="modal-footer">
+                    <button class="btn btn-primary lang" data-bs-target="#TC-List-modal" data-bs-toggle="modal" data-bs-dismiss="modal"
+                        key="previous"></button>
+                    <button class="btn btn-primary lang" data-bs-target="#seek-modal" data-bs-toggle="modal"
+                        data-bs-dismiss="modal" key="next"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</body>
+
+
+</html>

@@ -1,0 +1,92 @@
+@media screen and (max-width: 516px) {
+    #whole-bg {
+        background-color: blue;
+
+    }
+
+    .logo {
+        display: none;
+    }
+
+    .help {
+        display: none;
+    }
+
+    .navbar-toggler {
+        background-color: rgba(250, 118, 0, 0.8);
+        padding-top: 8px;
+        font-size: x-large;
+        padding-bottom: 0px;
+        padding-right: 8px;
+        padding-left: 8px;
+    }
+
+    /* button.navbar-toggler {
+        padding: 3.5px;
+    } */
+
+
+
+    #col-right {
+        padding: 5px;
+        padding-right: 20px;
+    }
+
+    .btn-lang {
+        margin-right: 30px;
+        height: 30px;
+    }
+
+    .btn-lang>img {
+        height: 30px !important;
+    }
+
+
+}
+
+/* 小屏幕下（手机） */
+
+@media screen and (min-width: 516px) {
+    .navbar-toggler {
+        display: none;
+    }
+
+    .navbar-expand-lg {
+        display: none;
+    }
+
+    #phoneNav {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 992px) {
+
+    /* .navbar-toggler {
+        display: none;
+    } */
+    .navbar-collapse {
+        position: fixed;
+    }
+
+    .navbar-expand-lg {
+        display: none;
+    }
+
+    #phoneNav {
+        display: none;
+    }
+
+}
+
+
+
+
+
+
+/* main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+} */

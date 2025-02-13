@@ -1,0 +1,71 @@
+#whole-bg {
+    background-color: #FA7600;
+    flex-direction: column;
+    min-height: 100vh;
+    display: flex;
+    color: #00205B;
+    overflow: hidden;
+}
+
+a {
+    text-decoration: none;
+    /* display: block; */
+    /* color: #1b79e4; */
+}
+
+.instruction {
+    background-color: #fff !important;
+    z-index: 1000;
+}
+
+.modal-header,
+.modal-footer {
+    border: none;
+    /* 去掉边框 */
+}
+
+.highlight {
+    border-color: #d10c1f !important;
+    border-width: 5px;
+    /* 红色边框 */
+    z-index: 100000 !important;
+    position: relative !important;
+}
+
+#guide {
+    background-color: (244, 232, 232, 0.1);
+}
+
+div.modal-content {
+    margin-top: 0px;
+    background-color: rgba(244, 232, 232, 0.3);
+    z-index: 10;
+}
+
+.modal-fade {
+    z-index: 10;
+}
+
+div.modal-dialog {
+    transform: translateY(100%);
+    transition: transform 0.1s ease-out;
+}
+
+.modal.show.modal-dialog {
+    transform: translateY(0);
+}
+
+.modal-backdrop {
+    filter: alpha(opacity=0) !important;
+    opacity: 0 !important;
+}
+
+.collapse {
+    display: none;
+    /* 隐藏元素 */
+}
+
+.collapse.show {
+    display: block;
+    /* 显示元素 */
+}

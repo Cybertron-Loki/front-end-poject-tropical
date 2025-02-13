@@ -1,0 +1,56 @@
+.amap-ui-control-theme-my-red {
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.4);
+    background: red;
+    color: #fff;
+    z-index: 10000;
+}
+
+@media screen and (max-width: 516px) {
+    .amap-control.amap-toolbar {
+        right: 10px;
+        bottom: 500px !important;
+        color: #0c7af7 !important;
+        background-color: orange;
+        border-radius: 20px;
+        border-color: silver;
+        position: fixed !important;
+    }
+}
+
+@media screen and (min-width: 516px) {
+    .amap-control.amap-toolbar {
+        right: 10px;
+        bottom: 400px !important;
+        color: #0c7af7 !important;
+        background-color: orange;
+        border-radius: 20px;
+        border-color: silver;
+    }
+        .amap-control.amap-scalecontrol {
+            right: 15px;
+            bottom: 60px !important;
+            color: #0c7af7 !important;
+            background: none;
+        }
+
+}
+
+.amap-toolbar span {
+    color: #0c7af7 !important;
+    display: block;
+
+}
+
+.amap-container img {
+    max-width: 81px !important;
+    max-height: 81px !important;
+}
+
+.amap-scale span {
+    color: #0c7af7 !important;
+    display: block;
+
+}
+
+
+

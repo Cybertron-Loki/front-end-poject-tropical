@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="hamburger.css">
+     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+     <style>
+      
+      main {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+    
+      .burger {
+        background: #151728;
+        border-radius: 4px;
+        margin: 0.5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 2px 4px #00000026, 0 3px 6px #0000001f;
+      }
+     </style>
+</head>
+
+<body>
+  <main>
+        <section>
+      <div class="burger burger4">
+        <div></div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+$(".burger").addClass("unToggled");
+$(".burger").click(function () {
+  $(this).toggleClass("toggled");
+  $(this).toggleClass("unToggled");
+  // also open menu here...
+});
+
+  </script>
+</body>
+</html>
+
+
+

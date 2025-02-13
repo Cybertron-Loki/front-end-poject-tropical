@@ -1,0 +1,50 @@
+<div class="modal fade" id="Seek">
+        <div class="modal-dialog footer-modal">
+            <div class="modal-content">
+
+                <div class="modal-body">
+                    <div class="container mt-3">
+                        <form action="/action_page.php">
+                            <div class="mb-3 mt-3">
+                                <label for="city">City:</label>
+                                <input type="search" class="form-control" id="city" placeholder="Enter city"
+                                    name="city">
+                            </div>
+                            <div class="mb-3">
+                                <label for="date">Date:</label>
+                                <input type="date" class="form-control" id="date" placeholder="Enter date" name="date">
+                            </div>
+                            <div class="form-check mb-3">
+                                <!-- <label class="form-check-label">
+                                    <input class="form-check-input" type="checkbox" name="remember"> Remember me
+                                </label> -->
+                            </div>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger lang" data-bs-dismiss="modal" key="Close"></button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="modal fade" id="seek-modal" aria-hidden="true" aria-labelledby="..." tabindex="-1">
+        <div class="modal-dialog modal-fullscreen" style="position: fixed;">
+            <div class="modal-content">
+                <div class="modal-footer">
+                    <button class="btn btn-primary lang" data-bs-target="#modal" data-bs-toggle="modal"
+                        data-bs-dismiss="modal" key="next"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="col">
+        <button class="btn btn-primary full-button" type="button" data-bs-toggle="modal" data-bs-target="#Seek" id="seek">
+            <div class="lang" key="SEEK">
+        </button>
+    </div>

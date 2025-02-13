@@ -1,0 +1,77 @@
+footer {
+    /* background-color: #fff; */
+    position: fixed;
+    bottom: 0;
+    left: 0px;
+    display: block;
+    z-index: 1000;
+}
+
+.modal-content {
+    color: #1b79e4;
+    background: white;
+    margin-top: 80px;
+}
+
+.col {
+    padding: 0px;
+    color: grey;
+    display: flex;
+}
+
+
+button.btn {
+    display: block;
+    background-color: #00205B;
+    color: orange;
+    font-family: 'Times New Roman', Times, serif;
+
+}
+
+#suTY {
+    background-color: rgba(181, 33, 8);
+}
+
+#STY {
+    background-color: rgba(231, 49, 24);
+}
+
+#TY {
+    background-color: rgba(255, 140, 0);
+}
+
+#STS {
+    background-color: rgba(255, 214, 8);
+}
+
+#TS {
+    background-color: rgba(247, 239, 99);
+}
+
+#TD {
+    background-color: rgba(57, 181, 156);
+}
+
+#color-indication {
+    height: 15px;
+    text-align: center;
+    font-size: x-small;
+}
+
+.full-button {
+    width: 100%;
+    /* 使按钮宽度填满父元素 */
+    height: 100%;
+    /* 使按钮高度填满父元素 */
+    background-color: #FA7600;
+    border-color: rgb(6, 6, 52);
+    border-style: ridge;
+    border-radius: 4px;
+    font-family: Gilroy, sans-serif;
+}
+
+.footer-modal{
+     background-color: white;
+     margin-top: 80px;
+     
+}
